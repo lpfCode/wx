@@ -14,12 +14,10 @@ class WxServerController extends Controller{
             'debug'   => true,
             'app_id' => config("wechat.official_account.default.app_id"),
             'secret' => config("wechat.official_account.default.secret"),
-
-            'response_type' => 'array',
-
+            'token'   => 'weixin',
             'log' => [
                 'level' => 'debug',
-                'file'  => '/project/wx/storage/logs/wechat.log',
+                'file'  => '/tmp/wechat.log',
             ],
         ];
         if(isset($_GET['echostr'])){
