@@ -20,4 +20,4 @@ Route::get('/menu/add', 'MenuController@add');
 Route::get('/template/add', 'TemplateController@add');
 Route::get('/message/add', 'MessageController@add');
 Route::get('qr/add', 'QrController@add');
-
+Route::get('list', 'WxServerController@listPage');
