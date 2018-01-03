@@ -11,6 +11,7 @@ class WxServerController extends Controller{
     public function index(){
 
         $config = [
+            'debug'   => true,
             'app_id' => config("wechat.official_account.default.app_id"),
             'secret' => config("wechat.official_account.default.secret"),
 
@@ -18,7 +19,7 @@ class WxServerController extends Controller{
 
             'log' => [
                 'level' => 'debug',
-                'file' => __DIR__.'/wechat.log',
+                'file'  => '/project/wx/storage/logs/wechat.log',
             ],
         ];
         if(isset($_GET['echostr'])){
