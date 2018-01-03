@@ -10,7 +10,7 @@ class WxServerController extends Controller{
     public function index(){
         if(isset($_GET['echostr'])){
             echo $_GET['echostr'];
-            exit;
+            return view("wx.index");
         }else{ 
             print_r($_GET);
         }   

@@ -16,3 +16,8 @@ Route::get('/', function () {
 });
 Route::get('/wx', 'WxServerController@index');
 Route::post('/wx','WxServerController@index');
+Route::get('/menu/add', 'MenuController@add');
+Route::get('/template/add', 'TemplateController@add');
+Route::get('/message/add', 'MessageController@add');
+Route::get('qr/add', 'QrController@add');
+
