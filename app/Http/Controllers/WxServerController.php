@@ -3,14 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Overtrue\LaravelWeChat\Facade;
 
 class WxServerController extends Controller{
    
     //验证微信
     public function index(){
+
+        $config = [
+            'app_id' => config("wechat.official_account.default.app_id"),
+            'secret' => config("wechat.official_account.default.secret"),
+
+            'response_type' => 'array',
+
+            'log' => [
+                'level' => 'debug',
+                'file' => __DIR__.'/wechat.log',
+            ],
+        ];
         if(isset($_GET['echostr'])){
             echo $_GET['echostr'];
-        }else{ 
+            $app = Facade::officialAccount($config);
+            $app->server->push(function ($message){
+                return "欢迎关注赶路人";
+            });
+            $reponse = $app->server->serve();
+            return $reponse;
+        }else{
             print_r($_GET);
         }
         return view("wx.index");

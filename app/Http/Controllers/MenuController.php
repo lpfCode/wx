@@ -12,9 +12,12 @@ class MenuController extends Controller{
 
     public function add(){
 
+//        $config = config("wechat.official_account.default.app_id");
+//        echo $config;
+
         $config = [
-            'app_id' => 'wx3cf0f39249eb0xxx',
-            'secret' => 'f1c242f4f28f735d4687abb469072xxx',
+            'app_id' => config("wechat.official_account.default.app_id"),
+            'secret' => config("wechat.official_account.default.secret"),
 
             'response_type' => 'array',
 
@@ -23,8 +26,6 @@ class MenuController extends Controller{
                 'file' => __DIR__.'/wechat.log',
             ],
         ];
-        $config = config("wechat.official_account.default.app_id");
-        echo $config;
     }
 
 }
